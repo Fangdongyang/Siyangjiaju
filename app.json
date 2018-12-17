@@ -1,0 +1,55 @@
+{
+  "cloud": true,
+  "pages": [
+    "pages/index/index",
+    "pages/userInfo/userInfo",
+    "pages/windows/windows",
+    "pages/doors/doors",
+    "pages/tiles/tiles",
+    "pages/kitchen/kitchen",
+    "pages/closets/closets",
+    "pages/electrocity/electrocity",
+    "pages/concrete/concrete",
+    "pages/paint/paint",
+    "pages/curtains/curtains",
+    "pages/homemaids/homemaids",
+    "pages/fridge/fridge",
+    "pages/woods/woods",
+    "pages/blogs/blog",
+    "pages/detail/index"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "泗阳家居助手",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "borderStyle": "black",
+    "color": "#000000",
+    "selectedColor": "#62B900",
+    "list": [
+      {
+        "selectedIconPath": "images/icons/homeHL.png",
+        "iconPath": "images/icons/home.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "images/icons/discoverHL.png",
+        "iconPath": "images/icons/discover.png",
+        "pagePath": "pages/blogs/blog",
+        "text": "动态"
+      },
+      
+      {
+        "selectedIconPath": "images/icons/userHL.png",
+       "iconPath": "images/icons/user.png",
+        "pagePath": "pages/userInfo/userInfo",
+        "text": "我的"
+      }
+      
+    ]
+  }
+}
