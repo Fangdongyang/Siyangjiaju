@@ -1,6 +1,7 @@
-//blog.js
+//blogs_my.js
 //获取应用实例
 const app = getApp()
+const myOpenid = ''
 
 Page({
 
@@ -10,13 +11,17 @@ Page({
   data: {
 
   },
-
   /**
    * 获取文章列表数据
    */
+
   getData() {
+    
     const db = wx.cloud.database({});
-    db.collection('blog').get().then(res => {
+    //云数据库查询
+    db.collection('blog').where({
+      _openid:'of-If5Tb0BZ8CHdMv_gmzEiboXF4'
+    }).get().then(res => {
       console.log(res);
       let data = res.data;
       data = data.map((item) => {

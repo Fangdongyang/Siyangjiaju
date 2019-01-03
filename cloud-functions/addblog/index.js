@@ -23,7 +23,7 @@ exports.main = async (event, context) => {
   if (whiteList.length && !whiteList.includes(openId)) {
     return {
       code: 2, // 没有权限
-      msg: '没有权限发布文章'
+      msg: '您尚未登录，没有权限发布文章'
     }
   }
 
@@ -56,7 +56,7 @@ exports.main = async (event, context) => {
   return {
     code: 0,
     data: {
-      id: result.id
+      id: result._id
     }
   };
 };

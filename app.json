@@ -16,7 +16,9 @@
     "pages/fridge/fridge",
     "pages/woods/woods",
     "pages/blogs/blog",
-    "pages/detail/index"
+    "pages/detail/index",
+    "pages/publish/publish",
+    "pages/blogs_my/blogs_my"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
