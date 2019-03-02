@@ -7,16 +7,16 @@
 }
 
 form input {
-  border: 1px solid #eee;
+  border: 1px solid rgb(184, 181, 181);
   margin: 5px 0;
   padding: 5px;
-  width: 300px;
+  width: 100%;
   font-size: 14px;
 }
 
 form textarea {
-  border: 1px solid #eee;
-  width: 300px;
+  border: 1px solid rgb(184, 181, 181);
+  width: 100%;
   min-height: 200px;
   margin: 5px 0;
   padding: 5px;
@@ -24,13 +24,14 @@ form textarea {
 }
 
 form button {
-  width: 310px;
-  margin: 10px 0 0;
+  width: 100%;
+  margin: 10px 0 8px 0;
   font-size: 14px;
 }
 
 button.upload {
-  width: 310px;
+  width: 100%;
   font-size: 14px;
   margin: 20px 0 10px 0;
+ 
 }

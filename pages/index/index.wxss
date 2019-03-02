@@ -1,5 +1,4 @@
 /**index.wxss**/
-
 page {
   background: #f6f6f6;
   display: flex;
