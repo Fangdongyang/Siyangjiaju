@@ -1,4 +1,4 @@
-<!--This is windows page-->
+<!--This is windows 纱窗 page-->
 <view class="page">
   <view class="page__bd">
     <view class="weui-tab">
@@ -14,13 +14,15 @@
         <!--选项一的内容-->
         <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
            <!--获取纱窗门店列表-->
-  <view class="idcard-item" wx:for="{{list}}" wx:key="*this" ontap="getDetail" data-blogid="{{item._id}}">
+  <view class="idcard-item" wx:for="{{list}}" wx:key="*this" ontap="getDetail" data-factoryid="{{item._ID}}">
     <view class="idcard-image">
-      <image src="{{item.cover}}"></image>
+      <image src="{{item.factoryPic}}"></image>
     </view>
     <view class="idcard-detail">
-      <view class="title">标题: {{item.title}}</view>
-      <view class="content">内容： {{item.content}}</view>
+      <view class="title">{{item.factoryName}}</view>
+      <view class="content">{{item.factoryAddress}}</view>
+      <view class="content">联系人：{{item.factoryContactName}}</view>
+      <view class="content">咨询热线：{{item.factoryContactMobile}}</view>
     </view>
   </view>
          <!--底部广告词-->
@@ -31,7 +33,7 @@
         <!--选项二的内容-->
         <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
          <!--获取纱窗厂家列表-->
-  <view class="idcard-item" wx:for="{{list}}" wx:key="*this" ontap="getDetail" data-blogid="{{item._id}}">
+  <view class="idcard-item" wx:for="{{list2}}" wx:key="*this" ontap="getDetail" data-blogid="{{item._id}}">
     <view class="idcard-image">
       <image src="{{item.cover}}"></image>
     </view>

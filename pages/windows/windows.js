@@ -19,6 +19,37 @@ Page({
     sliderOffset: 0,
     sliderLeft: 0,
   },
+  data1: {
+
+  },
+
+  /**
+  * 获取文章列表数据
+  */
+  getData1() {
+    const db = wx.cloud.database({});
+    db.collection('windowsForFactory').get().then(res => {
+      console.log(res);
+      let data1 = res.data;
+      this.setData({
+        list: data1
+      });
+    }).catch(e => {
+      wx.showToast({
+        title: 'db读取失败',
+        icon: 'none'
+      });
+    });
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    this.getData1();
+  },
+
+
   onLoad: function() {
     var that = this;
     wx.getSystemInfo({
@@ -36,4 +67,5 @@ Page({
       activeIndex: e.currentTarget.id
     });
   }
+ 
 });

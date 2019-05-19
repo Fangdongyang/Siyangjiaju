@@ -5,9 +5,9 @@
   <button class="upload" type="default" bindtap="uploadFile"> 上传封面图片 </button>
 
   <form bindsubmit="addBlog">
-    <input name="title" type="text" placeholder="标题"></input>
-    <textarea name="content" auto-height placeholder="文章内容" maxlength="1000"/>
-    <button form-type="submit" type="primary">提交</button>
+    <input name="title" type="text" placeholder="请输入主题"></input>
+    <textarea name="content" auto-height placeholder="请输入内容" maxlength="1000"/>
+    <button form-type="submit" type="primary">发布</button>
   </form>
 
 </view>

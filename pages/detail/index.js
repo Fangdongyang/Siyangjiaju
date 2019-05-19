@@ -7,6 +7,11 @@ Page({
     cover: '',
     title: '',
     content: '',
+    upNum: '',
+    commentNum: '',
+    favNum: '',
+    upStatus: '',
+    favStatus: ''
   },
 
   onLoad: function() {
@@ -26,7 +31,12 @@ Page({
         this.setData({
           cover: data.cover,
           title: data.title,
-          content: data.content
+          content: data.content,
+          upNum: data.upNum,
+          commentNum: data.commentNum,
+          favNum: data.favNum,
+          upStatus: data.upStatus,
+          favStatus: data.favStatus
         });
       })
       .catch(e => {
@@ -46,5 +56,25 @@ Page({
       current: current, // 当前显示图片的http链接  
       urls: [this.data.cover] // 需要预览的图片http链接列表  
     });
+  },
+  //点赞处理函数
+  onUpTap() {
+    if(!upStatus){
+      upNum++;
+      upStatus = true;
+    }else {
+      upNum--;
+      upStatus = false;
+    }
+    
+
+  },
+  //评论处理函数
+  onCommentTap() {
+
+  },
+  //收藏处理函数
+  onCollectTap() {
+
   }
 })

@@ -3,21 +3,23 @@ const app = getApp()
 Page({
   data: {
     imgUrls: [
-      '/images/swiperPics/1.jpg',
-      '/images/swiperPics/2.jpg',
-      '/images/swiperPics/3.jpg'
+      'cloud://siyangjiaju-7e0773.7369-siyangjiaju-7e0773/swiperPics/1.jpg',
+      'cloud://siyangjiaju-7e0773.7369-siyangjiaju-7e0773/swiperPics/2.jpg',
+      'cloud://siyangjiaju-7e0773.7369-siyangjiaju-7e0773/swiperPics/3.jpg',
+      'cloud://siyangjiaju-7e0773.7369-siyangjiaju-7e0773/swiperPics/4.jpg',
+      'cloud://siyangjiaju-7e0773.7369-siyangjiaju-7e0773/swiperPics/5.jpg'
     ],
     indicatorDots: true,
     autoplay: true,
     interval: 5000,
-    duration:2000,
+    duration: 2000,
 
 
-    routers:[
+    routers: [
       {
-        name:'移门室内门',
-        url:'/pages/woods/woods',
-        icon:'/images/icons/doors.png'
+        name: '移门室内门',
+        url: '/pages/woods/woods',
+        icon: '/images/icons/doors.png'
       },
       {
         name: '纱窗阳光房',
@@ -76,7 +78,7 @@ Page({
       }
     ]
   },
-  onLoad:function(){
+  onLoad: function () {
 
   }
 

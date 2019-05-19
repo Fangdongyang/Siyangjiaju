@@ -1,10 +1,27 @@
-<!--index.wxml-->
-<view class="container">  
-    <view class="title">{{title}}</view>
-    <view class="previewimg">  
-        <image src="{{cover}}" data-src="{{cover}}" bindtap="previewImage"></image>  
+<view class="container">
+  <view class="title">{{title}}</view>
+  <view class="previewimg">
+    <image src="{{cover}}" data-src="{{cover}}" bindtap="previewImage"></image>
+  </view>
+  <view class="content">
+    {{content}}
+  </view>
+  <!-- this is tools--> 
+  <view class="tool">
+    <view class="tool-item" catchtap='onUpTap' data-post-id="{{blogid}}">
+      <image wx:if="{{upStatus}}" src="/images/icons/zan2.png"></image>
+      <image wx:else src='/images/icons/zan.png'></image>
+      <text>{{upNum}}</text>
     </view>
-    <view class="content">
-      {{content}}
+    <view class="tool-item comment" catchtap='onCommentTap' data-post-id="{{blogid}}">
+      <image src="/images/icons/comment.png"></image>
+      <text>{{commentNum}}</text>
     </view>
+    <view class="tool-item" catchtap='onCollectionTap' data-post-id="{{blogid}}">
+      <image wx:if="{{favStatus}}" src="/images/icons/favs2.png"></image>
+      <image wx:else src='/images/icons/favs.png'></image>
+      <text>收藏-{{favNum}}</text>
+    </view>
+
+  </view>
 </view>

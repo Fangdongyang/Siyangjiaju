@@ -22,3 +22,24 @@ view.content {
   text-align: left;
   word-wrap:break-word; 
 }
+
+.tool{
+  height: 64rpx;
+  text-align: center;
+  line-height: 64rpx;
+  margin: 20rpx 28rpx 20rpx 0;
+}
+.tool-item{
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 30rpx;
+}
+.tool-item image{
+  height: 60rpx;
+  width: 60rpx;
+  vertical-align: -3px;
+  margin-right: 10rpx;
+}
+.comment image{
+  transform: scale(.85);
+}

@@ -1,7 +1,13 @@
 <!--pages/userinfo/userinfo-->
 <view class="container">
   <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 点击登录</button>
+  <!--未登录图像显示-->
+    <block wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo"
+bindgetuserinfo="getUserInfo">
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="/images/icons/login.png" ></image>
+      <button open-type="getUserInfo" bindgetuserinfo='getUserInfo'>登录使用更多功能</button>
+    </block>
+    <!--登陆后头像显示-->
     <block wx:else>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
@@ -30,4 +36,5 @@
       <view class="weui-cell__ft weui-cell__ft_in-access"></view>
     </navigator>
   </view>
+  
 </view>
