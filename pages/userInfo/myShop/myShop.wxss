@@ -32,3 +32,38 @@
   margin-top: 8rpx;
   margin-bottom: 8rpx;
 }
+
+page, .page, .page__bd {
+  height: 100%;
+}
+
+.page__bd {
+  padding-bottom: 0;
+}
+
+.weui-tab__content {
+  text-align: center;
+}
+
+
+.idcard-item {
+  display: flex;
+  width: 100%;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.idcard-image > image {
+  width: 150px;
+  height: 100px;
+  border: 1px solid #eee;
+}
+
+.idcard-image {
+  padding-left: 10px;
+}
+
+.idcard-detail {
+  font-size: 14px;
+  margin-left: 10px;
+}

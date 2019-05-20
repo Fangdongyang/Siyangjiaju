@@ -13,17 +13,27 @@
       <view class="weui-tab__panel">
         <!--选项一的内容-->
         <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+          <!--获取商家信息列表-->
+          <view class="idcard-item" wx:for="{{list}}" wx:key="*this" ontap="getStoreDetail" data-storeid="{{item._id}}">
+            <view class="idcard-image">
+              <image src="{{item.cover}}"></image>
+            </view>
+            <view class="idcard-detail">
+              <view class="storeName">门店名称：{{item.storeName}}</view>
+              <view class="storeAddress">地址：{{item.storeAddress}}</view>
+              <view class="storeContactName">联系人：{{item.storeContactName}}</view>
+              <view class="storeContactPhone">电话：{{item.storeContactPhone}}</view>
+            </view>
+          </view>
+        </view>
+        <!--底部广告词-->
+        <view class='ads'>
           <view>品牌门店入驻中！欢迎咨询！</view>
           <view>电话：18752010858 林先生</view>
           <view>微信：18752010858</view>
         </view>
-        <!--选项二的内容-->
-        <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
-        <view>厂商入驻中！欢迎咨询！</view>
-          <view>电话：18752010858 林先生</view>
-          <view>微信：18752010858</view>
-        </view>
-        
+
+
       </view>
     </view>
   </view>

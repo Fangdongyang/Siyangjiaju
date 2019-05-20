@@ -1,0 +1,16 @@
+<!--pages/blogs_my/blogs_my_detail/bolgs_my_detail.wxml-->
+<view class="container">
+  <view class="title">{{title}}</view>
+  <view class="previewimg">
+    <image src="{{cover}}" data-src="{{cover}}" bindtap="previewImage"></image>
+  </view>
+  <view class="content">
+    {{content}}
+  </view>
+  <!-- this is tools--> 
+
+<!--修改、删除按钮-->
+  <view class="page__bd page__bd_spacing">
+    <button class="weui-btn" type="warn" bindtap='deleteBlog'>删除动态</button>
+  </view>
+</view>

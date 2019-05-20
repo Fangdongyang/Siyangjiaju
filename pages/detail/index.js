@@ -14,7 +14,7 @@ Page({
     favStatus: ''
   },
 
-  onLoad: function() {
+  onLoad: function(options) {
     this.getBlogDetail();
   },
 
@@ -77,4 +77,8 @@ Page({
   onCollectTap() {
 
   }
-})
+
+ 
+
+
+});

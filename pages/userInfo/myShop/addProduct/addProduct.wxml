@@ -1,15 +1,21 @@
 <!--pages/userInfo/myShop/addProduct/addProduct.wxml-->
-<!--index.wxml-->
+
 <view class="container">
 
-  <image wx-if="{{coverImage}}" class="idcard" src="{{coverImage}}"></image>
-  <button class="upload" type="default" bindtap="uploadFile"> 上传封面图片 </button>
+  <view class="page__bd">
+    <image wx-if="{{coverImage}}" class="idcard" src="{{coverImage}}"></image>
+    <button class="weui-btn-area" type="default" bindtap="uploadFile"> 上传商品图片 </button>
 
-  <form bindsubmit="addBlog">
-    <input name="title" type="text" placeholder="请输入主题"></input>
-    <textarea name="content" auto-height placeholder="请输入内容" maxlength="1000"/>
-    <button form-type="submit" type="primary">发布</button>
-  </form>
+    <form bindsubmit="addProduct" class="weui-form">
+      <input name="productName" type="text" placeholder="请输入商品名称"></input>
+      <input name="productPrice" type="text" placeholder="请输入商品价格(元)"></input>
+      <input name="productUnit" type="text" placeholder="请输入商品单位:个/件/套/平方米/立方米等"></input>
+      <input name="productSize" type="text" placeholder="请输入商品规格尺寸"></input>
+      <input name="productColor" type="text" placeholder="请输入商品颜色(可填写多个颜色)"></input>
+      <textarea name="content" auto-height placeholder="请输入商品介绍以及补充说明" maxlength='1000'/>
+      <button form-type="submit" type="primary">发布</button>
+    </form>
+
+  </view>
 
 </view>
-

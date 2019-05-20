@@ -15,12 +15,9 @@
     height:100%;  
 }
 
-view.content {
-  width:100%;
-  margin: 10px 20px;
-  margin-left: 35px;
+.content {
+  align-items: left;
   text-align: left;
-  word-wrap:break-word; 
 }
 
 .tool{

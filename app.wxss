@@ -1235,3 +1235,10 @@ icon {
   color: #09bb07;
   white-space: nowrap;
 }
+
+.ads {
+  align-items: center;
+}
+.weui-navbar {
+  background-color: #fff;
+}

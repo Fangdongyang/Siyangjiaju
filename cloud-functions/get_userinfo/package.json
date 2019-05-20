@@ -1,12 +1,12 @@
 {
   "name": "get_userinfo",
   "version": "1.0.0",
-  "description": "",
+  "description": "function for getting user infomation",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "JamesFang",
   "license": "ISC",
   "dependencies": {
     "wx-server-sdk": "latest"

@@ -14,13 +14,16 @@
         <!--选项一的内容-->
         <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
           <!--获取商家信息列表-->
-          <view class="idcard-item" wx:for="{{list}}" wx:key="*this" ontap="getDetail" data-blogid="{{item._id}}">
+          <view class="idcard-item" wx:for="{{list}}" wx:key="*this" ontap="getStoreDetail" data-storeid="{{item._id}}">
             <view class="idcard-image">
               <image src="{{item.cover}}"></image>
             </view>
             <view class="idcard-detail">
-              <view class="title">{{item.title}}</view>
-              <view class="content">{{item.content}}</view>
+              <view class="storeName">门店名称：{{item.storeName}}</view>
+              <view class="storeAddress">地址：{{item.storeAddress}}</view>
+              <view class="storeContactName">联系人：{{item.storeContactName}}</view>
+              <view class="storeContactPhone">电话：{{item.storeContactPhone}}</view>
+              
             </view>
           </view>
           <!--添加商家信息-->
@@ -36,6 +39,21 @@
         </view>
         <!--选项二的内容-->
         <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+          <!--获取商品信息列表-->
+          <view class="idcard-item" wx:for="{{list2}}" wx:key="*this" ontap="getProductDetail" data-productid="{{item._id}}">
+            <view class="idcard-image">
+              <image src="{{item.cover}}"></image>
+            </view>
+            <view class="idcard-detail">
+              <view class="productName">商品名称：{{item.productName}}</view>
+              <view class="productPrice">商品价格：{{item.productPrice}}/{{item.productUnit}}</view>
+              <view class="productSize">商品规格：{{item.productSize}}</view>
+              <view class="productColor">商品颜色：{{item.productColor}}</view>
+              <view class="content">商品说明：{{item.content}}</view>
+            </view>
+          </view>
+
+          <!--添加商品信息-->
           <view class="weui-cells weui-cells_after-title">
             <navigator url="/pages/userInfo/myShop/addProduct/addProduct" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
               <image class="kind-list__img" src="/images/icons/fabudongtai.png"></image>

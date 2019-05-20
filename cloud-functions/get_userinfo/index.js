@@ -2,10 +2,10 @@
 const cloud = require('wx-server-sdk')
 
 cloud.init({
-  traceUser:true
+  traceUser: true
 })
 
 // 云函数入口函数
-exports.main = async (event, context) => {
-  return event
+exports.main = async(event, context) => {
+  return event.userInfo;
 }

@@ -12,7 +12,9 @@ App({
     }
   },
   globalData: {
-    blog: {}
+    blog: {},
+    store: {},
+    product: {}
   }
 
 

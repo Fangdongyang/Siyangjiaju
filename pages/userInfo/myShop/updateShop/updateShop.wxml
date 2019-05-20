@@ -1,0 +1,32 @@
+<!--pages/userInfo/myShop/updateShop/updateShop.wxml-->
+<!--index.wxml-->
+<view class="container">
+
+  <!--选择门店类型-->
+  <view class="page__bd">
+
+    <image wx-if="{{coverImage}}" class="idcard" src="{{coverImage}}"></image>
+    <button class="weui-btn-area" type="default" bindtap="uploadFile"> 上传门头照 </button>
+
+    <form bindsubmit="updateStore" class="weui-form">
+      <view class="weui-btn-area">
+        <picker name="keyType" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+          <button type="default">请选择新门店类型</button>
+        </picker>
+      </view>
+      <view class="weui-cells__title" style='text-align:center'>
+        当前门店类型为: {{array[index]}}
+      </view>
+
+
+      <input name="storeName" type="text" placeholder="请输入新门店名称"></input>
+      <input name="storeAddress" type="text" placeholder="请输入新门店地址"></input>
+      <input name="storeContactName" type="text" placeholder="请输入新联系人名称"></input>
+      <input name="storeContactPhone" type="text" placeholder="请输入新联系电话"></input>
+      <textarea name="content" auto-height placeholder="请输入门店简介" maxlength="1000" />
+      <button form-type="submit" type="primary">修改</button>
+    </form>
+
+  </view>
+
+</view>

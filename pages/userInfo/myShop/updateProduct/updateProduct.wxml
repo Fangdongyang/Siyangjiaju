@@ -1,0 +1,22 @@
+<!--pages/userInfo/myShop/updateProduct/updateProduct.wxml-->
+<!--pages/userInfo/myShop/addProduct/addProduct.wxml-->
+
+<view class="container">
+
+  <view class="page__bd">
+    <image wx-if="{{coverImage}}" class="idcard" src="{{coverImage}}"></image>
+    <button class="weui-btn-area" type="default" bindtap="uploadFile"> 上传新商品图片 </button>
+
+    <form bindsubmit="updateProduct" class="weui-form">
+      <input name="productName" type="text" placeholder="请输入商品新名称"></input>
+      <input name="productPrice" type="text" placeholder="请输入商品新价格(元)"></input>
+      <input name="productUnit" type="text" placeholder="请输入商品单位:个/件/套/平方米/立方米等"></input>
+      <input name="productSize" type="text" placeholder="请输入商品新规格尺寸"></input>
+      <input name="productColor" type="text" placeholder="请输入商品颜色(可填写多个颜色)"></input>
+      <textarea name="content" auto-height placeholder="请输入新商品介绍以及补充说明" maxlength='1000'/>
+      <button form-type="submit" type="primary">修改</button>
+    </form>
+
+  </view>
+
+</view>

@@ -1,2 +1,20 @@
 <!--pages/userInfo/myShop/productDetail/productDetail.wxml-->
-<text>pages/userInfo/myShop/productDetail/productDetail.wxml</text>
+<view class="container">
+  <view class="previewimg">
+    <image src="{{cover}}" data-src="{{cover}}" bindtap="previewImage"></image>
+  </view>
+  <view class="productName">商品名称：{{productName}}</view>
+  <view class="productPrice">商品价格：{{productPrice}}/{{productUnit}}</view>
+  <view class="productSize">商品规格：{{productSize}}</view>
+  <view class="productColor">商品颜色:{{productColor}}</view>
+  <view class="content">
+  {{content}}
+  </view>
+
+   <!--修改、删除按钮-->
+  <view class="page__bd page__bd_spacing">
+    <button class="weui-btn" type="primary" bindtap='updateProduct'>修改</button>
+    <button class="weui-btn" type="warn" bindtap='deleteProduct'>删除</button>
+  </view>
+
+</view>

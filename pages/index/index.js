@@ -18,7 +18,7 @@ Page({
     routers: [
       {
         name: '移门室内门',
-        url: '/pages/woods/woods',
+        url: '/pages/doors/doors',
         icon: '/images/icons/doors.png'
       },
       {

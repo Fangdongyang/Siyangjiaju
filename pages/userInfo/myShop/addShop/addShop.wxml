@@ -5,20 +5,17 @@
   <!--选择门店类型-->
   <view class="page__bd">
 
-
-
-
     <image wx-if="{{coverImage}}" class="idcard" src="{{coverImage}}"></image>
     <button class="weui-btn-area" type="default" bindtap="uploadFile"> 上传门头照 </button>
 
-    <form bindsubmit="addStore">
+    <form bindsubmit="addStore" class="weui-form">
       <view class="weui-btn-area">
         <picker name="keyType" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
           <button type="default">请选择门店类型</button>
         </picker>
       </view>
-      <view class="weui-cells__title">
-        当前门店类型为:{{array[index]}}
+      <view class="weui-cells__title" style='text-align:center'>
+        当前门店类型为: {{array[index]}}
       </view>
 
 
