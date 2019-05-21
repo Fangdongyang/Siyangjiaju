@@ -1,16 +1,50 @@
 <!--pages/store_detail/store_detail.wxml-->
-<view class="container">
-  <view class="storeName">{{storeName}}</view>
-  <view class="previewimg">
-    <image src="{{cover}}" data-src="{{cover}}" bindtap="previewImage"></image>
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-tab">
+      <view class="weui-navbar">
+        <block wx:for="{{tabs}}" wx:key="*this">
+          <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+            <view class="weui-navbar__title">{{item}}</view>
+          </view>
+        </block>
+        <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+      </view>
+      <view class="weui-tab__panel">
+        <!--这是选项一-->
+        <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+          <view class="container">
+            <view class="storeName">{{storeName}}</view>
+            <view class="previewimg">
+              <image src="{{cover}}" data-src="{{cover}}" bindtap="previewImage"></image>
+            </view>
+            <view class="storeAddress">门店地址：{{storeAddress}}</view>
+            <view class="storeName">联系人：{{storeContactName}}</view>
+            <view class="storeName">联系电话:{{storeContactPhone}}</view>
+            <view class="content">
+              {{content}}
+            </view>
+          </view>
+          <!--这是评分、收藏功能-->
+          <van-rate value="{{rateValue}}" bind:change="onChange" />
+        </view>
+        <!--这是选项二-->
+        <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+          <!--获取商品信息列表-->
+          <view class="idcard-item" wx:for="{{list2}}" wx:key="*this" ontap="getProductDetail" data-productid="{{item._id}}">
+            <view class="idcard-image">
+              <image src="{{item.cover}}"></image>
+            </view>
+            <view class="idcard-detail">
+              <view class="productName">商品名称：{{item.productName}}</view>
+              <view class="productPrice">商品价格：{{item.productPrice}}/{{item.productUnit}}</view>
+              <view class="productSize">商品规格：{{item.productSize}}</view>
+              <view class="productColor">商品颜色：{{item.productColor}}</view>
+              <view class="content">商品说明：{{item.content}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
   </view>
-  <view class="storeAddress">门店地址：{{storeAddress}}</view>
-  <view class="storeName">联系人：{{storeContactName}}</view>
-  <view class="storeName">联系电话:{{storeContactPhone}}</view>
-  <view class="content">
-    {{content}}
-  </view>
-
-
-
 </view>

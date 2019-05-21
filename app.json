@@ -28,7 +28,8 @@
     "pages/userInfo/myShop/addProduct/addProduct",
     "pages/userInfo/myShop/updateProduct/updateProduct",
     "pages/userInfo/myShop/updateShop/updateShop",
-    "pages/store_detail/store_detail"
+    "pages/store_detail/store_detail",
+    "pages/product_detail/product_detail"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -63,4 +64,5 @@
     ]
   },
   "sitemapLocation": "sitemap.json"
+
 }

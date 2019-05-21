@@ -13,6 +13,39 @@
       <view class="weui-tab__panel">
         <!--选项一的内容-->
         <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+          <!--搜索条-->
+          <view class="weui-search-bar">
+            <view class="weui-search-bar__form">
+              <view class="weui-search-bar__box">
+                <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+                <input type="text" class="weui-search-bar__input" placeholder="搜索门店信息" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+                <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+                  <icon type="clear" size="14"></icon>
+                </view>
+              </view>
+              <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+                <icon class="weui-icon-search" type="search" size="14"></icon>
+                <view class="weui-search-bar__text">搜索</view>
+              </label>
+            </view>
+            <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+          </view>
+          <view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}">
+            <view class="idcard-item" wx:if="{{storeList.length > 0}}">
+              <view class="idcard-item" wx:for="{{storeList}}" wx:key="*this" ontap="getStoreDetail" data-storeid="{{item._id}}">
+                <view class="weui-cell__bd">
+                  <view>{{item.storeName}}</view>
+                </view>
+              </view>
+            </view>
+            <view wx:else>
+              <view class="weui-cell__bd">
+                <view>{{searchResult}}</view>
+              </view>
+            </view>
+          </view>
+          <!--搜索内容结束-->
+
           <!--获取商家信息列表-->
           <view class="idcard-item" wx:for="{{list}}" wx:key="*this" ontap="getStoreDetail" data-storeid="{{item._id}}">
             <view class="idcard-image">
@@ -32,10 +65,6 @@
           <view>电话：18752010858 林先生</view>
           <view>微信：18752010858</view>
         </view>
-
-        <!--选项二的内容-->
-
-
       </view>
     </view>
   </view>
