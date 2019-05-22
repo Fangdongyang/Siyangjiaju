@@ -1,14 +1,25 @@
 <!--pages/product_detail/product_detail.wxml-->
-<view class="container">
-  <view class="previewimg">
-    <image src="{{cover}}" data-src="{{cover}}" bindtap="previewImage"></image>
+<view class="page">
+  <view class="container">
+    <view class="previewimg">
+      <image src="{{cover}}" data-src="{{cover}}" bindtap="previewImage"></image>
+    </view>
+    <view class="productName">商品名称：{{productName}}</view>
+    <view class="productPrice">商品价格：{{productPrice}}/{{productUnit}}</view>
+    <view class="productSize">商品规格：{{productSize}}</view>
+    <view class="productColor">商品颜色:{{productColor}}</view>
+    <view class="content">
+      {{content}}
+    </view>
   </view>
-  <view class="productName">商品名称：{{productName}}</view>
-  <view class="productPrice">商品价格：{{productPrice}}/{{productUnit}}</view>
-  <view class="productSize">商品规格：{{productSize}}</view>
-  <view class="productColor">商品颜色:{{productColor}}</view>
-  <view class="content">
-  {{content}}
+  <!--这是评分、收藏功能-->
+  <van-rate  class="rate" value="{{rateValue_p}}" bind:change="onChange_p" />
+  <!-- this is tools-->
+  <view class="tool">
+    <view class="tool-item" catchtap='onFavTap_p' data-post-id="{{productid}}">
+      <image wx:if="{{favStatus_p}}" src="/images/icons/favs2.png"></image>
+      <image wx:else src='/images/icons/favs.png'></image>
+      <text>收藏商品</text>
+    </view>
   </view>
-
 </view>

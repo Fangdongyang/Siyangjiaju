@@ -15,13 +15,9 @@ Page({
     storeAddress: '',
     storeContactName: '',
     storeContactPhone: '',
-    rateValue:0,
-  },
-
-  
-  //用于存储商品信息
-  data2: {
-
+    rateValue: 0,
+    favNum: '',
+    favStatus: ''
   },
   //onLoad函数
   onLoad: function() {
@@ -41,12 +37,40 @@ Page({
     });
     //获取用户评分状态
     this.getRateValue();
+    //获取用户门店收藏状态
+    this.getStoreFavs();
   },
   tabClick: function(e) {
     this.setData({
       sliderOffset: e.currentTarget.offsetLeft,
       activeIndex: e.currentTarget.id
     });
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function() {
+    this.getRateValue();
+    this.getData2();
+    this.getStoreDetail()
+  },
+
+  /**
+   * 获取用户openID
+   */
+  getOpenid() {
+    let that = this;
+    wx.cloud.callFunction({
+      name: 'get_userinfo',
+      complete: res => {
+        console.log('云函数获取到的openid:', res.result.openId)
+        var openid = res.result.openId;
+        this.setData({
+          openid: openid
+        })
+      }
+    })
   },
 
   /**
@@ -63,16 +87,15 @@ Page({
       storeId: storeId
     }).get().then(res => {
       console.log(res)
-      if(res.data[0].rateValue > 0 ){
-        var rateValue1 = res.data[0].rateValue;//注意！！！！！data是一个数组，将其中某一个值进行赋//值时，需要使用data[0]添加index!!!!!!!!!!!
+      if (res.data[0].rateValue > 0) {
+        var rateValue1 = res.data[0].rateValue; //注意！！！！！data是一个数组，将其中某一个值进行赋//值时，需要使用data[0]添加index!!!!!!!!!!!
         console.log(rateValue1);
         this_.setData({
-          rateValue : rateValue1
+          rateValue: rateValue1
         })
-      }else{
+      } else {
         console.log('评分为0')
       }
-
     }).catch(e => {
       wx.showToast({
         title: '您还未评分！',
@@ -81,7 +104,7 @@ Page({
     });
   },
 
-  
+
   //改变评分
   onChange(event) {
     var that = this
@@ -110,30 +133,80 @@ Page({
         icon: 'none'
       });
     });
-   
-
   },
+
+  /**
+   * 获取门店收藏状态
+   */
+  getStoreFavs() {
+    var this_ = this
+    const db = wx.cloud.database({});
+    let storeId = app.globalData.store.id;
+    db.collection('storeFavs').where({
+      //获取当前用户创建的商品信息
+      _openid: this.openid,
+      storeId: storeId
+    }).get().then(res => {
+      console.log(res)
+      if (res.data[0].favStatus > 0) {
+        var favStatus2 = res.data[0].favStatus; //注意！！！！！data是一个数组，将其中某一个值进行赋//值时，需要使用data[0]添加index!!!!!!!!!!!
+        console.log(favStatus2);
+        this_.setData({
+          favStatus: favStatus2
+        })
+      } else {
+        console.log('favstatus为0，未收藏')
+      }
+    }).catch(e => {
+      wx.showToast({
+        title: '您还未收藏！',
+        icon: 'none'
+      });
+    });
+  },
+
+
 
 
 
   /**
-   * 获取用户openID
+   * 收藏门店
    */
-  getOpenid() {
-    let that = this;
-
-    wx.cloud.callFunction({
-      name: 'get_userinfo',
-      complete: res => {
-        console.log('云函数获取到的openid:', res.result.openId)
-        var openid = res.result.openId;
-        this.setData({
-          openid: openid
-        })
+  onFavTap(event) {
+    var that = this
+    this.setData({
+      favStatus: 1
+    });
+    console.log(this.data.favStatus)
+    //存储评分信息进入数据库
+    const db = wx.cloud.database({});
+    let storeId = app.globalData.store.id;
+    console.log(storeId)
+    db.collection('storeFavs').add({
+      data: {
+        storeId: storeId,
+        favStatus: this.data.favStatus
       }
-    })
+    }).then(res => {
+      wx.showToast({
+        title: '收藏成功！',
+        icon: 'success',
+        duration: 2000
+      })
+    }).catch(e => {
+      wx.showToast({
+        title: '收藏失败！',
+        icon: 'none'
+      });
+    });
+
   },
   list2: {
+
+  },
+
+  //用于存储商品信息
+  data2: {
 
   },
   /**
@@ -157,17 +230,6 @@ Page({
       });
     });
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-    this.getRateValue();
-    this.getData2();
-    this.getStoreDetail()
-  },
-
-
   /**
    * 跳转至商品详情
    */

@@ -27,6 +27,14 @@
           </view>
           <!--这是评分、收藏功能-->
           <van-rate value="{{rateValue}}" bind:change="onChange" />
+          <!-- this is tools-->
+          <view class="tool">
+            <view class="tool-item" catchtap='onFavTap' data-post-id="{{storeid}}">
+              <image wx:if="{{favStatus}}" src="/images/icons/favs2.png"></image>
+              <image wx:else src='/images/icons/favs.png'></image>
+              <text>收藏门店{{favNum}}</text>
+            </view>
+          </view>
         </view>
         <!--这是选项二-->
         <view class="weui-tab__content" hidden="{{activeIndex != 1}}">

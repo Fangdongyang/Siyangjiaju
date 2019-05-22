@@ -8,19 +8,19 @@
   </view>
   <!-- this is tools--> 
   <view class="tool">
-    <view class="tool-item" catchtap='onUpTap' data-post-id="{{blogid}}">
+    <view class="tool-item" catchtap='onBlogUpTap' data-post-id="{{blogid}}">
       <image wx:if="{{upStatus}}" src="/images/icons/zan2.png"></image>
       <image wx:else src='/images/icons/zan.png'></image>
       <text>{{upNum}}</text>
     </view>
-    <view class="tool-item comment" catchtap='onCommentTap' data-post-id="{{blogid}}">
+    <view class="tool-item comment" catchtap='onBlogCommentTap' data-post-id="{{blogid}}">
       <image src="/images/icons/comment.png"></image>
       <text>{{commentNum}}</text>
     </view>
-    <view class="tool-item" catchtap='onCollectionTap' data-post-id="{{blogid}}">
+    <view class="tool-item" catchtap='onBlogCollectTap' data-post-id="{{blogid}}">
       <image wx:if="{{favStatus}}" src="/images/icons/favs2.png"></image>
       <image wx:else src='/images/icons/favs.png'></image>
-      <text>收藏-{{favNum}}</text>
+      <text>收藏</text>
     </view>
 
   </view>
