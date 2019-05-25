@@ -1,4 +1,4 @@
-<!--pages/blogs_my/blogs_my_detail/bolgs_my_detail.wxml-->
+<!--pages/userInfo/myFavs/blogDetailFavs/blogDetailFavs.wxml-->
 <view class="container">
   <view class="title">{{title}}</view>
   <view class="previewimg">
@@ -8,8 +8,9 @@
     {{content}}
   </view>
 
-  <!--修改、删除按钮-->
+   <!--修改、删除按钮-->
   <view class="page__bd page__bd_spacing">
-    <button class="weui-btn" type="warn" bindtap='deleteBlog'>删除动态</button>
+    <button class="weui-btn" type="warn" bindtap='deleteBlogFavs'>删除</button>
   </view>
+
 </view>

@@ -1,0 +1,19 @@
+<!--pages/userInfo/myFavs/storeDetailFavs/storeDetailFavs.wxml-->
+<view class="container">
+  <view class="storeName">{{storeName}}</view>
+  <view class="previewimg">
+    <image src="{{cover}}" data-src="{{cover}}" bindtap="previewImage"></image>
+  </view>
+  <view class="storeAddress">门店地址：{{storeAddress}}</view>
+  <view class="storeName">联系人：{{storeContactName}}</view>
+  <view class="storeName">联系电话:{{storeContactPhone}}</view>
+  <view class="content">
+    {{content}}
+  </view>
+
+  <!--修改、删除按钮-->
+  <view class="page__bd page__bd_spacing">
+    <button class="weui-btn" type="warn" bindtap='deleteStoreFavs'>删除</button>
+  </view>
+
+</view>

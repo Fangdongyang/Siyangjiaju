@@ -151,7 +151,7 @@ Page({
 
       // 跳转到门店详情
       app.globalData.store.id = data.id;
-      wx.navigateTo({
+      wx.redirectTo({
         url: '/pages/userInfo/myShop/storeDetail/storeDetail'
       });
       wx.hideLoading();

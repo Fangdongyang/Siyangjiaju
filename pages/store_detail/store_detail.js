@@ -16,7 +16,10 @@ Page({
     storeContactName: '',
     storeContactPhone: '',
     rateValue: 0,
-    favNum: '',
+    favNum: 0,
+    rateNum: '',
+    totalRateValue: 0,
+    totalRateRecords: 0,
     favStatus: ''
   },
   //onLoad函数
@@ -39,6 +42,10 @@ Page({
     this.getRateValue();
     //获取用户门店收藏状态
     this.getStoreFavs();
+    //获取评分数rateNum
+    this.getRateNum();
+    //获取收藏数favNum
+    this.getFavNum();
   },
   tabClick: function(e) {
     this.setData({
@@ -70,6 +77,56 @@ Page({
           openid: openid
         })
       }
+    })
+  },
+
+  //获取评分数RateNum
+  getRateNum() {
+    var this_ = this
+    let storeId = app.globalData.store.id;
+    const db = wx.cloud.database({});
+    var totalRateValue = this.data.totalRateValue;
+    //获取评分总记录
+    db.collection('storeRate').where({
+      storeId: storeId
+    }).count().then(res => {
+      console.log('门店评分总记录：', res.total)
+      this_.setData({
+        totalRateRecords: res.total
+      })
+    });
+    //获取评分总和
+    db.collection('storeRate').where({
+      storeId: storeId
+    }).get().then(res => {
+      console.log('门店评分总和长度：', res.data.length);
+      for(var i = 0;i<res.data.length;i++){
+        totalRateValue = totalRateValue + res.data[i].rateValue 
+      }
+      console.log('门店评分总和为：',totalRateValue)
+
+      //获取平均评分
+      this_.setData({
+        rateNum : totalRateValue / this.data.totalRateRecords
+      })
+      
+     
+    })
+
+  },
+
+  //获取收藏数favNum
+  getFavNum() {
+    var this_ = this
+    let storeId = app.globalData.store.id;
+    const db = wx.cloud.database({});
+    db.collection('storeFavs').where({
+      storeId: storeId
+    }).count().then(res => {
+      console.log('门店收藏总数：', res.total)
+      this_.setData({
+        favNum: res.total
+      })
     })
   },
 
@@ -127,6 +184,7 @@ Page({
         icon: 'success',
         duration: 2000
       })
+      this.onLoad();
     }).catch(e => {
       wx.showToast({
         title: '评分数据库读取失败',
@@ -193,6 +251,7 @@ Page({
         icon: 'success',
         duration: 2000
       })
+      this.onLoad();
     }).catch(e => {
       wx.showToast({
         title: '收藏失败！',

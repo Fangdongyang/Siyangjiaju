@@ -6,22 +6,53 @@
   <view class="content">
     {{content}}
   </view>
-  <!-- this is tools--> 
+  <!-- this is tools-->
   <view class="tool">
-    <view class="tool-item" catchtap='onBlogUpTap' data-post-id="{{blogid}}">
+    <view class="tool-item" catchtap='onBlogUpTap' data-post-id="{{post.blogid}}">
       <image wx:if="{{upStatus}}" src="/images/icons/zan2.png"></image>
       <image wx:else src='/images/icons/zan.png'></image>
       <text>{{upNum}}</text>
     </view>
-    <view class="tool-item comment" catchtap='onBlogCommentTap' data-post-id="{{blogid}}">
-      <image src="/images/icons/comment.png"></image>
-      <text>{{commentNum}}</text>
+    <view class="tool-item comment">
+      <image src='/images/icons/comment.png'></image>
+      <text class='ml10'> {{commentNum}}</text>
     </view>
-    <view class="tool-item" catchtap='onBlogCollectTap' data-post-id="{{blogid}}">
+    <view class="tool-item" catchtap='onBlogCollectTap' data-post-id="{{post.blogid}}">
       <image wx:if="{{favStatus}}" src="/images/icons/favs2.png"></image>
       <image wx:else src='/images/icons/favs.png'></image>
-      <text>收藏</text>
+      <text>收藏{{favNum}}</text>
     </view>
-
   </view>
+</view>
+<!--以下为评论内容-->
+<view class='txt'>用户评论：</view>
+<view class='greyLine'>___________________________________________________________________</view>
+<view class='comments flexDownC'>
+  <!--若有评论数据，显示以下内容-->
+  <view wx:if='{{commentData.length > 0}}' class='com'>
+    <view wx:for='{{commentData}}' wx:key="*this" class='comItem flexDownC'>
+      <view class='userInfo flexRowL'>
+        <view class='user flexC'>
+          <image src='{{item.avatarUrl || defaultImg}}' class='userinfo-avatar'></image>
+          <view class="userinfo-nickname">{{item.userName || '匿名用户'}}</view>
+        </view>
+        <view class='txt'>{{item.commentText}}</view>
+        <view class='time textalignRight'>{{item.date}}</view>
+      </view>
+
+    </view>
+  </view>
+  <!--若没有评论数据，显示以下内容-->
+  <view wx:else class='noComment'>
+    暂无评论...快来抢沙发！
+  </view>
+</view>
+
+
+<view class='bottomInput flexC'>
+  <input class='inputB' placeholder='请输入评论内容！' placeholder-style='color:#ccc' maxlength='120' value='{{commentTxt}}' confirm-type='send' bindinput='inputHandler' bindconfirm='confirm'></input>
+    <view class="page__bd page__bd_spacing">
+    <button class="weui-btn" type="default" bindtap='confirm'>添加评论</button>
+  </view>
+
 </view>

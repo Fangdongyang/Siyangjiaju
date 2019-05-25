@@ -1,4 +1,4 @@
-/* pages/blogs_my/blogs_my_detail/blogs_my_detail.wxss */
+/* pages/userInfo/myFavs/storeDetailFavs/storeDetailFavs.wxss */
 
 .container {  
     box-sizing:border-box;  
@@ -39,4 +39,10 @@
 }
 .comment image{
   transform: scale(.85);
+}
+
+.button-sp-area{
+    margin: 0 auto;
+    padding-top: 15px;
+    width: 60%;
 }

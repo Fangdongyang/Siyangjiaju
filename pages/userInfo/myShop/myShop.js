@@ -41,6 +41,14 @@ Page({
   },
 
   /**
+ * 生命周期函数--监听页面显示
+ */
+  onShow: function () {
+    this.getData1();
+    this.getData2();
+  },
+
+  /**
    * 获取用户openID
    */
   getOpenid() {
@@ -57,10 +65,6 @@ Page({
       }
     })
   },
-
-
-
-
 
   /**
   * 获取门店列表数据
@@ -104,14 +108,6 @@ Page({
         icon: 'none'
       });
     });
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    this.getData1();
-    this.getData2();
   },
 
   /**

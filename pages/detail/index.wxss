@@ -1,18 +1,21 @@
 /**index.wxss**/
 
-.container {  
-    box-sizing:border-box;  
-    padding:20px;  
-}   
-.previewimg{  
-    float:left;  
-    width:100%;  
-    height:200px;  
-    margin:2%;
-}  
-.previewimg image{  
-    width:100%;  
-    height:100%;  
+.container {
+  display: flex;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.previewimg {
+  float: left;
+  width: 100%;
+  height: 200px;
+  margin: 2%;
+}
+
+.previewimg image {
+  width: 100%;
+  height: 100%;
 }
 
 .content {
@@ -20,23 +23,106 @@
   text-align: left;
 }
 
-.tool{
+/*功能按钮的样式 */
+
+.tool {
   height: 64rpx;
   text-align: center;
   line-height: 64rpx;
   margin: 20rpx 28rpx 20rpx 0;
 }
-.tool-item{
+
+.tool-item {
   display: inline-block;
   vertical-align: top;
   margin-right: 30rpx;
 }
-.tool-item image{
+
+.tool-item image {
   height: 60rpx;
   width: 60rpx;
   vertical-align: -3px;
   margin-right: 10rpx;
 }
-.comment image{
-  transform: scale(.85);
+
+.comment image {
+  transform: scale(0.85);
+}
+
+/*以下为评论功能样式*/
+
+
+.content {
+  align-items: flex-start;
+}
+
+.noComment {
+  font-size: 28rpx;
+  margin-top: 30rpx;
+  color: #ccc;
+}
+
+.comItem, .comments, .com {
+  width: 100%;
+}
+
+.userImg {
+  margin-right: 10rpx;
+}
+
+.comItem {
+  padding: 10rpx 20rpx;
+  margin-top: 30rpx;
+  margin-bottom: 20rpx;
+  border-bottom: 1px solid #f7f7f7;
+}
+
+.navBtn {
+  width: 80%;
+  height: 80rpx;
+  color: #fff;
+  background: #ea9518;
+  line-height: 80rpx;
+  margin-top: 60rpx;
+}
+
+.comItem:last-child {
+  border: none;
+}
+
+.time {
+  width: 100%;
+  font-size: 28rpx;
+  color: #ccc;
+  margin-right: 50rpx;
+}
+
+.bottomInput {
+  width: 100%;
+  height: 100rpx;
+}
+
+.inputB {
+  width: 95%;
+  height: 80rpx;
+  line-height: 80rpx;
+  border: 1px solid #f4f4f4;
+  border-radius: 10rpx;
+  background: #f9f9f9;
+}
+
+.greyLine {
+  height: 1 px;
+  width: 100%;
+}
+
+.userinfo-avatar {
+  width: 64rpx;
+  height: 64rpx;
+  margin: 10rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
 }

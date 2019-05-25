@@ -12,14 +12,17 @@
       {{content}}
     </view>
   </view>
-  <!--这是评分、收藏功能-->
-  <van-rate  class="rate" value="{{rateValue_p}}" bind:change="onChange_p" />
+
   <!-- this is tools-->
   <view class="tool">
+    <!--这是评分、收藏功能-->
+    <van-rate class="rate" value="{{rateValue_p}}" bind:change="onChange_p" />
+    <text>商品评分：{{rateNum}}</text>
+    <text>--------</text>
     <view class="tool-item" catchtap='onFavTap_p' data-post-id="{{productid}}">
       <image wx:if="{{favStatus_p}}" src="/images/icons/favs2.png"></image>
       <image wx:else src='/images/icons/favs.png'></image>
-      <text>收藏商品</text>
+      <text>收藏{{favNum}}</text>
     </view>
   </view>
 </view>
