@@ -1,7 +1,6 @@
 //blog.js
 //获取应用实例
 const app = getApp()
-
 Page({
 
   /**
@@ -39,7 +38,7 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
     this.getData();
   },
 

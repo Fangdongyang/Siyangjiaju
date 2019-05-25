@@ -13,7 +13,7 @@
 		"nodeModules": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.4.0",
+	"libVersion": "2.7.0",
 	"appid": "wxc52f0a30ab454fe1",
 	"projectname": "siyangjiaju",
 	"debugOptions": {
@@ -41,12 +41,26 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 2,
 			"list": [
 				{
 					"id": -1,
 					"name": "动态详情编译",
 					"pathName": "pages/detail/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的动态",
+					"pathName": "pages/blogs_my/blogs_my",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "主页编译",
+					"pathName": "pages/userInfo/userInfo",
 					"scene": null
 				}
 			]

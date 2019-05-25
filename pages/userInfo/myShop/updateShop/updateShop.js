@@ -15,10 +15,9 @@ Page({
     statusMsg: '',
     fileID: null,
     coverImage: '',
-    tempFilePath: '',
-
+    tempFilePath: ''
   },
-  bindPickerChange: function (e) {
+  bindPickerChange: function(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       index: e.detail.value,
@@ -26,12 +25,11 @@ Page({
     })
   },
 
-
-//门店信息修改
+  //门店信息修改
   /**
    * 上传图片
    */
-  uploadFile: function () {
+  uploadFile: function() {
     wx.chooseImage({
       success: dRes => {
         this.setData({
@@ -75,7 +73,7 @@ Page({
   /**
    * 获取图片链接
    */
-  getTempFileURL: function () {
+  getTempFileURL: function() {
     wx.cloud.getTempFileURL({
       fileList: [{
         fileID: this.data.fileID,
@@ -104,7 +102,7 @@ Page({
   /**
    * 修改商家信息
    */
-  updateStore: function (e) {
+  updateStore: function(e) {
     const data = this.data
     const formData = e.detail.value;
 
@@ -146,12 +144,5 @@ Page({
 
       }
     })
-    
-    
-    
-    
-  
-
-    
   }
 })

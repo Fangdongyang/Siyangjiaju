@@ -91,7 +91,7 @@ Page({
           //获取当前用户创建的商品信息
           //数据库权限为仅创建者可独写.doc方法只能删除_id条件的数据
           //删除多条件数据，需要使用云函数
-        
+
           wx.cloud.callFunction({
             name: 'deleteFavStore',
             data: {
@@ -107,7 +107,7 @@ Page({
               wx.showToast({
                 title: result.msg,
                 icon: 'success',
-                duration:2000
+                duration: 2000
               });
               return;
             }
@@ -120,7 +120,7 @@ Page({
           }).catch(err => {
             console.error('调用云函数失败', err)
           });
-         
+
         } else if (res.cancel) {
           wx.showToast({
             title: '已取消',
@@ -132,7 +132,5 @@ Page({
       }
     })
 
-  },
-
-
+  }
 })

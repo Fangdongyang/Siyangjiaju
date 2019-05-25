@@ -48,7 +48,6 @@
   </view>
 </view>
 
-
 <view class='bottomInput flexC'>
   <input class='inputB' placeholder='请输入评论内容！' placeholder-style='color:#ccc' maxlength='120' value='{{commentTxt}}' confirm-type='send' bindinput='inputHandler' bindconfirm='confirm'></input>
     <view class="page__bd page__bd_spacing">

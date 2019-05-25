@@ -1,11 +1,9 @@
 //index.js
 var util = require('../../db/util.js')
-
 //获取应用实例
 const app = getApp()
 const db = wx.cloud.database()
 const _ = db.command
-
 Page({
   data: {
     cover: '',
@@ -21,7 +19,6 @@ Page({
     date: '',
     defaultImg: '/images/icons/user.png',
     userInfo: {},
-
   },
   //生命周期
   onLoad: function(options) {
@@ -45,7 +42,6 @@ Page({
     this.getUpNum();
     //获取收藏数favNum
     this.getFavNum();
-
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -74,7 +70,6 @@ Page({
       wx.clearStorageSync();
       wx.setStorageSync('postList', dataObj.postList)
     }
-
   },
 
   /**
@@ -118,7 +113,7 @@ Page({
     let blogId = app.globalData.blog.id;
     const db = wx.cloud.database({});
     db.collection('blogComment').where({
-      blogId:blogId
+      blogId: blogId
     }).count().then(res => {
       console.log('动态评论总数：', res.total)
       this_.setData({
@@ -154,9 +149,6 @@ Page({
       })
     })
   },
-
-
-
 
   //获取用户动态点赞状态
   getBlogUpStatus() {
@@ -277,7 +269,6 @@ Page({
           icon: 'success',
           duration: 2000
         })
-
         //用onLoad周期方法重新加载，实现当前页面的刷新
         this.onLoad()
       }).catch(e => {
@@ -286,7 +277,6 @@ Page({
           icon: 'none'
         });
       });
-
     } else {
       wx.showToast({
         title: '请填写评论内容！',
@@ -296,10 +286,6 @@ Page({
     }
 
   },
-
-
-
-
 
   //获取用户动态收藏状态
   getBlogFavStatus() {
@@ -353,11 +339,5 @@ Page({
     });
 
   },
-
-
-
-
-
-
 
 });

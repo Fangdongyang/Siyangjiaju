@@ -14,7 +14,7 @@ Page({
 
   },
 
-  onLoad: function () {
+  onLoad: function() {
     this.getProductDetail();
   },
 
@@ -26,19 +26,19 @@ Page({
     const db = wx.cloud.database({});
     let productId = app.globalData.product.id;
     db.collection('ProductsForAll').doc(productId).get().then(res => {
-      console.log('商品详情读取成功', res.data);
-      let data = res.data;
-      this.setData({
-        cover: data.cover,
-        productName: data.productName,
-        content: data.content,
-        productPrice: data.productPrice,
-        productSize: data.productSize,
-        productColor: data.productColor,
-        productUnit: data.productUnit
+        console.log('商品详情读取成功', res.data);
+        let data = res.data;
+        this.setData({
+          cover: data.cover,
+          productName: data.productName,
+          content: data.content,
+          productPrice: data.productPrice,
+          productSize: data.productSize,
+          productColor: data.productColor,
+          productUnit: data.productUnit
 
-      });
-    })
+        });
+      })
       .catch(e => {
         wx.showToast({
           title: '数据库读取失败',
@@ -50,7 +50,7 @@ Page({
   /**   
    * 预览图片  
    */
-  previewImage: function (e) {
+  previewImage: function(e) {
     var current = e.target.dataset.src;
     wx.previewImage({
       current: current, // 当前显示图片的http链接  
@@ -58,11 +58,11 @@ Page({
     });
   },
   //删除收藏商品信息
-  deleteProductFavs: function (e) {
+  deleteProductFavs: function(e) {
     wx.showModal({
       title: '提示',
       content: '您确认要删除此条收藏商品？',
-      success: function (res) {
+      success: function(res) {
         if (res.confirm) {
           console.log('用户点击确定')
 
@@ -89,7 +89,7 @@ Page({
               wx.showToast({
                 title: result.msg,
                 icon: 'success',
-                duration:2000
+                duration: 2000
               });
               return;
             }
@@ -114,7 +114,5 @@ Page({
       }
     })
 
-  },
-
-
+  }
 })

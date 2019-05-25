@@ -1,6 +1,5 @@
 //获取应用实例
 const app = getApp()
-
 Page({
   data: {
     hasUserInfo: false,
@@ -14,17 +13,15 @@ Page({
   /**
    * 上传文件
    */
-  uploadFile: function () {
+  uploadFile: function() {
     wx.chooseImage({
       success: dRes => {
         this.setData({
           statusMsg: '开始上传文件'
         })
-
         wx.showLoading({
           title: '加载中',
         });
-
         const uploadTask = wx.cloud.uploadFile({
           cloudPath: `${Date.now()}-${Math.floor(Math.random(0, 1) * 10000000)}.png`,
           filePath: dRes.tempFilePaths[0],
@@ -53,7 +50,7 @@ Page({
   /**
    * 获取图片链接
    */
-  getTempFileURL: function () {
+  getTempFileURL: function() {
     wx.cloud.getTempFileURL({
       fileList: [{
         fileID: this.data.fileID,
@@ -61,13 +58,11 @@ Page({
     }).then(res => {
       console.log('获取成功', res)
       let files = res.fileList;
-
       if (files.length) {
         this.setData({
           coverImage: files[0].tempFileURL
         });
       }
-
       wx.hideLoading();
     }).catch(err => {
       console.error('获取失败', err)
@@ -82,7 +77,7 @@ Page({
   /**
    * 发布文章
    */
-  addBlog: function (e) {
+  addBlog: function(e) {
     const data = this.data
     const formData = e.detail.value;
 
@@ -92,7 +87,6 @@ Page({
         icon: 'none'
       });
     }
-
     wx.showLoading({
       title: '发布中',
     });

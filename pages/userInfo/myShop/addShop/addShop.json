@@ -1,5 +1,6 @@
 {
   "usingComponents": {
     "van-picker": "/dist/picker/index"
-  }
+  },
+  "navigationBarTitleText": "添加门店"
 }

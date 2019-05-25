@@ -1,55 +1,64 @@
 //blogs_my.js
 //获取应用实例
 const app = getApp()
-
+wx.cloud.init();
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
+
     openid: '',
 
   },
 
-onLoad: function(){
-  this.getOpenid();
-},
+  //生命周期函数-加载
+  onLoad: function() {
+    //获取用户openID
+    this.getOpenid();
+    this.getData();
+  },
 
-/**
- * 获取用户openID
- */
-getOpenid(){
-  let that = this;
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function() {
 
-wx.cloud.callFunction({
-  name: 'get_userinfo',
-  complete: res => {
-    console.log('云函数获取到的openid:',res.result.openId)
-    var openid = res.result.openId;
-    that.setData({
-      openid: openid
+  },
+
+  /**
+   * 获取用户openID
+   */
+  getOpenid() {
+    let that = this;
+    wx.cloud.init();
+    // 数据库引用
+    const db = wx.cloud.database();
+    wx.cloud.callFunction({
+      name: 'get_userinfo',
+      complete: res => {
+        console.log('云函数获取到的openid:', res.result.openId)
+        var openid = res.result.openId;
+        that.setData({
+          openid: openid
+        })
+      }
     })
-  }
-})
-},
-
-
-
-
+  },
 
   /**
    * 获取文章列表数据
    */
-
   getData() {
     const db = wx.cloud.database({});
-    //云数据库查询
     db.collection('blog').where({
-      _openid: this.openid
+      _openid: this.data.openid
     }).get().then(res => {
       console.log(res);
       let data = res.data;
+      if (!data.length) {
+        this.onLoad()
+      }
       data = data.map((item) => {
         let appendix = (item.content.length > 20) ? '...' : '';
         item.content = item.content.slice(0, 20) + appendix;
@@ -57,7 +66,8 @@ wx.cloud.callFunction({
       });
 
       this.setData({
-        list: data
+        list: data,
+        flag: 1
       });
     }).catch(e => {
       wx.showToast({
@@ -65,13 +75,6 @@ wx.cloud.callFunction({
         icon: 'none'
       });
     });
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    this.getData();
   },
 
   /**
@@ -85,5 +88,4 @@ wx.cloud.callFunction({
       url: '/pages/blogs_my/blogs_my_detail/blogs_my_detail'
     });
   }
-
 })

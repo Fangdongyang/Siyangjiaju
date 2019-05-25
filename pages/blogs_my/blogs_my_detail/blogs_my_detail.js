@@ -1,7 +1,6 @@
 // pages/blogs_my/blogs_my_detail/blogs_my_detail.js
 //获取应用实例
 const app = getApp()
-
 Page({
   data: {
     cover: '',
@@ -9,7 +8,7 @@ Page({
     content: ''
   },
 
-  onLoad: function (options) {
+  onLoad: function(options) {
     this.getBlogDetail();
   },
 
@@ -39,7 +38,7 @@ Page({
   /**   
    * 预览图片  
    */
-  previewImage: function (e) {
+  previewImage: function(e) {
     var current = e.target.dataset.src;
     wx.previewImage({
       current: current, // 当前显示图片的http链接  
@@ -48,11 +47,11 @@ Page({
   },
 
   //删除动态
-  deleteBlog: function (e) {
+  deleteBlog: function(e) {
     wx.showModal({
       title: '提示',
       content: '您确认要删除此条动态？',
-      success: function (res) {
+      success: function(res) {
         if (res.confirm) {
           console.log('用户点击确定')
           //调用数据库API进行删除
@@ -70,12 +69,11 @@ Page({
             })
           })
 
-        }
-        else if (res.cancel) {
+        } else if (res.cancel) {
           wx.showToast({
             title: '已取消',
             icon: 'success',
-            duration:1000
+            duration: 1000
           })
         }
 
@@ -83,7 +81,4 @@ Page({
     })
 
   }
-
-
-
 })

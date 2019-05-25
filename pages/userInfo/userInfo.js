@@ -6,7 +6,7 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    fileID: null
+    fileID: null,
   },
 
   //事件处理函数
@@ -50,8 +50,5 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
-  },
-
-
-
+  }
 })

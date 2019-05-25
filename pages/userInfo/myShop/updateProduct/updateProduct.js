@@ -12,14 +12,13 @@ Page({
     statusMsg: '',
     fileID: null,
     coverImage: '',
-    tempFilePath: '',
-
+    tempFilePath: ''
   },
 
   /**
    * 商品信息修改
    */
-  uploadFile: function () {
+  uploadFile: function() {
     wx.chooseImage({
       success: dRes => {
         this.setData({
@@ -63,7 +62,7 @@ Page({
   /**
    * 获取图片链接
    */
-  getTempFileURL: function () {
+  getTempFileURL: function() {
     wx.cloud.getTempFileURL({
       fileList: [{
         fileID: this.data.fileID,
@@ -92,7 +91,7 @@ Page({
   /**
    * 修改商品信息
    */
-  updateProduct: function (e) {
+  updateProduct: function(e) {
     const data = this.data
     const formData = e.detail.value;
 
@@ -131,16 +130,7 @@ Page({
         wx.redirectTo({
           url: '/pages/userInfo/myShop/myShop',
         })
-
       }
     })
-
-
-
-
-
-
-
   }
-
 })

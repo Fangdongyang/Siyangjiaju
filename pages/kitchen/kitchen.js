@@ -1,10 +1,6 @@
 //kitchen.js
-
 const app = getApp()
-
 var sliderWidth = 96; // 需要设置slider的宽度，用于计算中间位置
-
-
 Page({
   data: {
     tabs: ["品牌门店"],
@@ -19,7 +15,6 @@ Page({
     inputVal: '',
     searchResult: ''
   },
-
   //搜索相关功能
   storeList: {
 
@@ -55,7 +50,6 @@ Page({
       viewShowed: false,
       inputVal: e.detail.value
     });
-
 
     //获取数据库数据进行比较
     var inputValue = this.data.inputVal
@@ -109,7 +103,6 @@ Page({
   /**
 * 获取门店列表数据
 */
-
   data1: {
 
   },
@@ -132,7 +125,6 @@ Page({
     });
   },
 
-
   /**
    * 生命周期函数--监听页面显示
    */
@@ -146,7 +138,6 @@ Page({
   getStoreDetail(e) {
     let _id = e.currentTarget.dataset.storeid;
     app.globalData.store.id = _id;
-
     wx.navigateTo({
       url: '/pages/store_detail/store_detail'
     });

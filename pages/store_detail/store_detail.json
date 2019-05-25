@@ -1,5 +1,6 @@
 {
   "usingComponents": {
     "van-rate": "/dist/rate/index"
-  }
+  },
+  "navigationBarTitleText": "门店详情"
 }

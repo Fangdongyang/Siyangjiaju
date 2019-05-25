@@ -1,13 +1,18 @@
 <!--blog.wxml-->
 <view class="container">
-  <!--获取文章列表-->
-  <view class="idcard-item" wx:for="{{list}}" wx:key="*this" ontap="getDetail" data-blogid="{{item._id}}">
-    <view class="idcard-image">
-      <image src="{{item.cover}}"></image>
+  <block wx:if="{{!list.length}}">
+    <text>您还没有发布动态！</text>
+  </block>
+  <block wx:else>
+    <!--获取文章列表-->
+    <view class="idcard-item" wx:for="{{list}}" wx:key="*this" ontap="getDetail" data-blogid="{{item._id}}">
+      <view class="idcard-image">
+        <image src="{{item.cover}}"></image>
+      </view>
+      <view class="idcard-detail">
+        <view class="title">标题: {{item.title}}</view>
+        <view class="content">内容： {{item.content}}</view>
+      </view>
     </view>
-    <view class="idcard-detail">
-      <view class="title">标题: {{item.title}}</view>
-      <view class="content">内容： {{item.content}}</view>
-    </view>
-  </view>
+  </block>
 </view>

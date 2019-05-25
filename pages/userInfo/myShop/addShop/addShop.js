@@ -15,8 +15,7 @@ Page({
     statusMsg: '',
     fileID: null,
     coverImage: '',
-    tempFilePath: '',
-
+    tempFilePath: ''
   },
 
   bindPickerChange: function(e) {
@@ -26,8 +25,6 @@ Page({
       keyType: e.detail.value
     })
   },
-
-
 
   /**
    * 上传文件

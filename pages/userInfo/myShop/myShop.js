@@ -15,17 +15,17 @@ Page({
 
   },
   //存储商品信息
-  data2:{
+  data2: {
 
   },
   //onLoad函数
-  onLoad: function () {
+  onLoad: function() {
     //获取用户openID
     this.getOpenid();
     //页面设置
     var that = this;
     wx.getSystemInfo({
-      success: function (res) {
+      success: function(res) {
         that.setData({
           sliderLeft: (res.windowWidth / that.data.tabs.length - sliderWidth) / 2,
           sliderOffset: res.windowWidth / that.data.tabs.length * that.data.activeIndex
@@ -33,7 +33,7 @@ Page({
       }
     });
   },
-  tabClick: function (e) {
+  tabClick: function(e) {
     this.setData({
       sliderOffset: e.currentTarget.offsetLeft,
       activeIndex: e.currentTarget.id
@@ -41,9 +41,9 @@ Page({
   },
 
   /**
- * 生命周期函数--监听页面显示
- */
-  onShow: function () {
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function() {
     this.getData1();
     this.getData2();
   },
@@ -67,8 +67,8 @@ Page({
   },
 
   /**
-  * 获取门店列表数据
-  */
+   * 获取门店列表数据
+   */
   getData1() {
     const db = wx.cloud.database({});
     db.collection('StoresForAll').where({
@@ -89,8 +89,8 @@ Page({
   },
 
   /**
- * 获取商品列表数据
- */
+   * 获取商品列表数据
+   */
   getData2() {
     const db = wx.cloud.database({});
     db.collection('ProductsForAll').where({
@@ -122,7 +122,7 @@ Page({
     });
   },
 
-   /**
+  /**
    * 跳转至商品详情
    */
   getProductDetail(e) {
@@ -132,8 +132,5 @@ Page({
     wx.navigateTo({
       url: '../myShop/productDetail/productDetail'
     });
-  },
-
- 
-
+  }
 });

@@ -1,12 +1,6 @@
 //windows.js
-
 const app = getApp()
-
-
-
 var sliderWidth = 96; // 需要设置slider的宽度，用于计算中间位置
-
-
 Page({
   data: {
     tabs: ["品牌门店"],
@@ -21,32 +15,31 @@ Page({
     inputVal: '',
     searchResult: ''
   },
-
   //搜索相关功能
   storeList: {
 
   },
   //显示搜索框样式
-  showInput: function () {
+  showInput: function() {
     this.setData({
       inputShowed: true
     });
   },
   //隐藏搜索框样式
-  hideInput: function () {
+  hideInput: function() {
     this.setData({
       inputVal: "",
       inputShowed: false
     });
   },
   //清除搜索框值
-  clearInput: function () {
+  clearInput: function() {
     this.setData({
       inputVal: ""
     });
   },
   //键盘抬起事件
-  inputTyping: function (e) {
+  inputTyping: function(e) {
     console.log('搜索框的值为', e.detail.value)
     var that = this;
     //处理搜索值为空的情况
@@ -57,7 +50,6 @@ Page({
       viewShowed: false,
       inputVal: e.detail.value
     });
-
 
     //获取数据库数据进行比较
     var inputValue = this.data.inputVal
@@ -108,12 +100,9 @@ Page({
       activeIndex: e.currentTarget.id
     });
   },
-
-
   /**
-  * 获取门店列表数据
-  */
-
+   * 获取门店列表数据
+   */
   data1: {
 
   },
@@ -123,7 +112,7 @@ Page({
     db.collection('StoresForAll').where({
       keyType: '1'
     }).get().then(res => {
-      console.log('门店数据库读取成功',res);
+      console.log('门店数据库读取成功', res);
       let data1 = res.data;
       this.setData({
         list: data1
@@ -135,12 +124,10 @@ Page({
       });
     });
   },
-
-
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
     this.getData1();
   },
 
@@ -155,6 +142,4 @@ Page({
       url: '/pages/store_detail/store_detail'
     });
   }
-
- 
 });

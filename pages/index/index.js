@@ -13,10 +13,7 @@ Page({
     autoplay: true,
     interval: 5000,
     duration: 2000,
-
-
-    routers: [
-      {
+    routers: [{
         name: '移门室内门',
         url: '/pages/doors/doors',
         icon: '/images/icons/doors.png'
@@ -78,8 +75,6 @@ Page({
       }
     ]
   },
-  onLoad: function () {
-
-  }
+  onLoad: function() {}
 
 })

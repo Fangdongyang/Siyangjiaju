@@ -1,7 +1,6 @@
 // pages/product_detail/product_detail.js
 //获取应用实例
 const app = getApp()
-
 Page({
   data: {
     cover: '',
@@ -18,7 +17,6 @@ Page({
     rateNum: '',
     totalRateValue: 0,
     totalRateRecords: 0,
-
   },
 
   onLoad: function() {
@@ -124,15 +122,11 @@ Page({
         totalRateValue = totalRateValue + res.data[i].rateValue_p
       }
       console.log('门店评分总和为：', totalRateValue)
-
       //获取平均评分
       this_.setData({
         rateNum: totalRateValue / this.data.totalRateRecords
       })
-
-
     })
-
   },
 
   //获取收藏数favNum
@@ -149,9 +143,6 @@ Page({
       })
     })
   },
-
-
-
   /**
    * 获取用户评分状态
    */
@@ -184,7 +175,6 @@ Page({
     });
   },
 
-
   //改变评分
   onChange_p(event) {
     var that = this
@@ -213,8 +203,6 @@ Page({
         icon: 'none'
       });
     });
-
-
   },
 
   /**
@@ -239,7 +227,6 @@ Page({
       } else {
         console.log('favstatus为0，未收藏')
       }
-
     }).catch(e => {
       wx.showToast({
         title: '您还未收藏！',
@@ -248,10 +235,6 @@ Page({
     });
 
   },
-
-
-
-
 
   /**
    * 收藏商品
@@ -286,8 +269,5 @@ Page({
       });
     });
 
-  },
-
-
-
+  }
 })

@@ -1,7 +1,6 @@
 // pages/userInfo/myFavs/blogDetailFavs/blogDetailFavs.js
 //获取应用实例
 const app = getApp()
-
 Page({
   data: {
     cover: '',
@@ -63,7 +62,7 @@ Page({
           const db = wx.cloud.database({});
           let blogId = app.globalData.blog.id;
 
-          console.log('当前 blogid为',blogId);
+          console.log('当前 blogid为', blogId);
           //获取当前用户创建的商品信息
           //数据库权限为仅创建者可独写.doc方法只能删除_id条件的数据
           //删除多条件数据，需要使用云函数

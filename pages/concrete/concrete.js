@@ -1,16 +1,12 @@
 //concrete.js
-
 const app = getApp()
-
 var sliderWidth = 96; // 需要设置slider的宽度，用于计算中间位置
-
-
 Page({
   data: {
     tabs: ["品牌门店"],
     activeIndex: 0,
     sliderOffset: 0,
-    sliderLeft: 0, 
+    sliderLeft: 0,
     //搜索框状态
     inputShowed: false,
     //显示结果VIEW的状态
@@ -25,26 +21,26 @@ Page({
 
   },
   //显示搜索框样式
-  showInput: function () {
+  showInput: function() {
     this.setData({
       inputShowed: true
     });
   },
   //隐藏搜索框样式
-  hideInput: function () {
+  hideInput: function() {
     this.setData({
       inputVal: "",
       inputShowed: false
     });
   },
   //清除搜索框值
-  clearInput: function () {
+  clearInput: function() {
     this.setData({
       inputVal: ""
     });
   },
   //键盘抬起事件
-  inputTyping: function (e) {
+  inputTyping: function(e) {
     console.log('搜索框的值为', e.detail.value)
     var that = this;
     //处理搜索值为空的情况
@@ -55,7 +51,6 @@ Page({
       viewShowed: false,
       inputVal: e.detail.value
     });
-
 
     //获取数据库数据进行比较
     var inputValue = this.data.inputVal
@@ -87,12 +82,11 @@ Page({
         icon: 'none'
       });
     });
-
   },
-  onLoad: function () {
+  onLoad: function() {
     var that = this;
     wx.getSystemInfo({
-      success: function (res) {
+      success: function(res) {
         that.setData({
           sliderLeft: (res.windowWidth / that.data.tabs.length - sliderWidth) / 2,
           sliderOffset: res.windowWidth / that.data.tabs.length * that.data.activeIndex
@@ -100,16 +94,15 @@ Page({
       }
     });
   },
-  tabClick: function (e) {
+  tabClick: function(e) {
     this.setData({
       sliderOffset: e.currentTarget.offsetLeft,
       activeIndex: e.currentTarget.id
     });
   },
   /**
-* 获取门店列表数据
-*/
-
+   * 获取门店列表数据
+   */
   data1: {
 
   },
@@ -132,11 +125,10 @@ Page({
     });
   },
 
-
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
     this.getData1();
   },
 
@@ -146,7 +138,6 @@ Page({
   getStoreDetail(e) {
     let _id = e.currentTarget.dataset.storeid;
     app.globalData.store.id = _id;
-
     wx.navigateTo({
       url: '/pages/store_detail/store_detail'
     });

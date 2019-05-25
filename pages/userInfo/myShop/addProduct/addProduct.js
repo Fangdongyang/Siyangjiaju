@@ -1,6 +1,5 @@
 // pages/userInfo/myShop/addProduct/addProduct.js
 const app = getApp()
-
 Page({
 
   /**
@@ -12,14 +11,13 @@ Page({
     statusMsg: '',
     fileID: null,
     coverImage: '',
-    tempFilePath: '',
-
+    tempFilePath: ''
   },
 
   /**
    * 上传文件
    */
-  uploadFile: function () {
+  uploadFile: function() {
     wx.chooseImage({
       success: dRes => {
         this.setData({
@@ -63,7 +61,7 @@ Page({
   /**
    * 获取图片链接
    */
-  getTempFileURL: function () {
+  getTempFileURL: function() {
     wx.cloud.getTempFileURL({
       fileList: [{
         fileID: this.data.fileID,
@@ -92,11 +90,11 @@ Page({
   /**
    * 发布商品信息
    */
-  addProduct: function (e) {
+  addProduct: function(e) {
     const data = this.data
     const formData = e.detail.value;
 
-    if (!formData.productName || !formData.productPrice || !formData.productUnit || !formData.productSize || !formData.content|| !formData.productColor || !data.coverImage) {
+    if (!formData.productName || !formData.productPrice || !formData.productUnit || !formData.productSize || !formData.content || !formData.productColor || !data.coverImage) {
       return wx.showToast({
         title: '商品名称、商品价格、商品单位、商品尺寸、商品颜色、商品说明等信息不能为空',
         icon: 'none'

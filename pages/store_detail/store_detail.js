@@ -1,7 +1,6 @@
 // pages/store_detail/store_detail.js
 const app = getApp()
 var sliderWidth = 96; // 需要设置slider的宽度，用于计算中间位置
-
 Page({
   data: {
     tabs: ["商家信息", "商品信息"],
@@ -100,19 +99,16 @@ Page({
       storeId: storeId
     }).get().then(res => {
       console.log('门店评分总和长度：', res.data.length);
-      for(var i = 0;i<res.data.length;i++){
-        totalRateValue = totalRateValue + res.data[i].rateValue 
+      for (var i = 0; i < res.data.length; i++) {
+        totalRateValue = totalRateValue + res.data[i].rateValue
       }
-      console.log('门店评分总和为：',totalRateValue)
+      console.log('门店评分总和为：', totalRateValue)
 
       //获取平均评分
       this_.setData({
-        rateNum : totalRateValue / this.data.totalRateRecords
+        rateNum: totalRateValue / this.data.totalRateRecords
       })
-      
-     
     })
-
   },
 
   //获取收藏数favNum
@@ -160,7 +156,6 @@ Page({
       });
     });
   },
-
 
   //改变评分
   onChange(event) {
@@ -222,10 +217,6 @@ Page({
       });
     });
   },
-
-
-
-
 
   /**
    * 收藏门店
@@ -317,7 +308,6 @@ Page({
           storeAddress: data.storeAddress,
           storeContactName: data.storeContactName,
           storeContactPhone: data.storeContactPhone
-
         });
       })
       .catch(e => {

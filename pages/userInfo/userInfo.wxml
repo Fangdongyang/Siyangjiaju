@@ -5,7 +5,7 @@
     <block wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo"
 bindgetuserinfo="getUserInfo">
       <image bindtap="bindViewTap" class="userinfo-avatar" src="/images/icons/login.png" ></image>
-      <button open-type="getUserInfo" bindgetuserinfo='getUserInfo'>登录使用更多功能</button>
+      <button open-type="getUserInfo" bindgetuserinfo='getUserInfo' type='default'>登录使用更多功能</button>
     </block>
     <!--登陆后头像显示-->
     <block wx:else>

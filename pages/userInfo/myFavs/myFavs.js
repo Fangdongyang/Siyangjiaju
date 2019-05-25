@@ -57,7 +57,6 @@ Page({
 
   },
 
-
   /**
    * 获取用户openID
    */
@@ -74,7 +73,6 @@ Page({
       }
     })
   },
-
 
   /**
    * 获取用户收藏的门店列表数据
@@ -118,8 +116,8 @@ Page({
   },
 
   /**
-  * 跳转至门店详情
-  */
+   * 跳转至门店详情
+   */
   getStoreDetail(e) {
     let _id = e.currentTarget.dataset.storeid;
     app.globalData.store.id = _id;
@@ -171,8 +169,8 @@ Page({
   },
 
   /**
- * 跳转至商品详情
- */
+   * 跳转至商品详情
+   */
   getProductDetail(e) {
     let _id = e.currentTarget.dataset.productid;
     app.globalData.product.id = _id;
@@ -181,8 +179,6 @@ Page({
       url: '/pages/userInfo/myFavs/productDetailFavs/productDetailFavs'
     });
   },
-
-
 
   /**
    * 获取用户收藏的文章列表数据
@@ -225,8 +221,8 @@ Page({
   },
 
   /**
- * 跳转至动态详情
- */
+   * 跳转至动态详情
+   */
   getBlogDetail(e) {
     let _id = e.currentTarget.dataset.blogid;
     app.globalData.blog.id = _id;
@@ -234,8 +230,5 @@ Page({
     wx.navigateTo({
       url: '../myFavs/blogDetailFavs/blogDetailFavs'
     });
-  },
-
-
-
+  }
 })
