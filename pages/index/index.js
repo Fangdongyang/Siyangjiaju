@@ -4,10 +4,11 @@ Page({
   data: {
     imgUrls: [
       'cloud://siyangjiaju-7e0773.7369-siyangjiaju-7e0773/swiperPics/1.jpg',
-      'cloud://siyangjiaju-7e0773.7369-siyangjiaju-7e0773/swiperPics/2.jpg',
       'cloud://siyangjiaju-7e0773.7369-siyangjiaju-7e0773/swiperPics/3.jpg',
+      'cloud://siyangjiaju-7e0773.7369-siyangjiaju-7e0773/swiperPics/2.jpg',
       'cloud://siyangjiaju-7e0773.7369-siyangjiaju-7e0773/swiperPics/4.jpg',
-      'cloud://siyangjiaju-7e0773.7369-siyangjiaju-7e0773/swiperPics/5.jpg'
+      'cloud://siyangjiaju-7e0773.7369-siyangjiaju-7e0773/swiperPics/5.jpg',
+      'cloud://siyangjiaju-7e0773.7369-siyangjiaju-7e0773/swiperPics/logo.png'
     ],
     indicatorDots: true,
     autoplay: true,

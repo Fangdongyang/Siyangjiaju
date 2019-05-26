@@ -1,7 +1,7 @@
 <!--blog.wxml-->
 <view class="container">
   <block wx:if="{{!list.length}}">
-    <text>您还没有发布动态！</text>
+    <view>您还没有发布动态！</view>
   </block>
   <block wx:else>
     <!--获取文章列表-->

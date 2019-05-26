@@ -11,8 +11,8 @@
         <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
       </view>
       <view class="weui-tab__panel">
-        
-         <!--选项一的内容-->
+
+        <!--选项一的内容-->
         <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
           <!--搜索条-->
           <view class="weui-search-bar">
@@ -63,8 +63,7 @@
         <!--底部广告词-->
         <view class='ads'>
           <view>品牌门店入驻中！欢迎咨询！</view>
-          <view>电话：18752010858 林先生</view>
-          <view>微信：18752010858</view>
+          <view>电话/微信：19850079295 林先生</view>
         </view>
       </view>
     </view>

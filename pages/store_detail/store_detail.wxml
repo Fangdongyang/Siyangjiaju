@@ -40,18 +40,23 @@
         <!--这是选项二-->
         <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
           <!--获取商品信息列表-->
-          <view class="idcard-item" wx:for="{{list2}}" wx:key="*this" ontap="getProductDetail" data-productid="{{item._id}}">
-            <view class="idcard-image">
-              <image src="{{item.cover}}"></image>
+          <block wx:if="{{!storeData.length}}">
+            <view>商家暂未发布商品！</view>
+          </block>
+          <block wx:else>
+            <view class="idcard-item" wx:for="{{list2}}" wx:key="*this" ontap="getProductDetail" data-productid="{{item._id}}">
+              <view class="idcard-image">
+                <image src="{{item.cover}}"></image>
+              </view>
+              <view class="idcard-detail">
+                <view class="productName">商品名称：{{item.productName}}</view>
+                <view class="productPrice">商品价格：{{item.productPrice}}/{{item.productUnit}}</view>
+                <view class="productSize">商品规格：{{item.productSize}}</view>
+                <view class="productColor">商品颜色：{{item.productColor}}</view>
+                <view class="content">商品说明：{{item.content}}</view>
+              </view>
             </view>
-            <view class="idcard-detail">
-              <view class="productName">商品名称：{{item.productName}}</view>
-              <view class="productPrice">商品价格：{{item.productPrice}}/{{item.productUnit}}</view>
-              <view class="productSize">商品规格：{{item.productSize}}</view>
-              <view class="productColor">商品颜色：{{item.productColor}}</view>
-              <view class="content">商品说明：{{item.content}}</view>
-            </view>
-          </view>
+          </block>
         </view>
       </view>
     </view>
