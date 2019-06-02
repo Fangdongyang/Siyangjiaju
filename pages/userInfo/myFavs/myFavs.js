@@ -58,20 +58,15 @@ Page({
   },
 
   /**
-   * 获取用户openID
-   */
+  * 获取用户openID
+  */
   getOpenid() {
-    let that = this;
-    wx.cloud.callFunction({
-      name: 'get_userinfo',
-      complete: res => {
-        console.log('云函数获取到的openid:', res.result.openId)
-        var openid = res.result.openId;
-        that.setData({
-          openid: openid
-        })
-      }
+    let this_ = this;
+    let openid = app.globalData.openId.openid;
+    this_.setData({
+      openid: openid
     })
+    console.log('openId:', this.data.openid)
   },
 
   /**

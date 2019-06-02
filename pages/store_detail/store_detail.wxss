@@ -1,7 +1,7 @@
 /* pages/store_detail/store_detail.wxss */
 .container {  
     box-sizing:border-box;  
-    padding:20px;  
+    padding:10px;  
 }   
 .previewimg{  
     float:left;  
@@ -16,27 +16,6 @@
 }
 
 
-.tool{
-  height: 64rpx;
-  text-align: left;
-  line-height: 64rpx;
-  margin: 20rpx 28rpx 20rpx 0;
-}
-.tool-item{
-  display: inline-block;
-  vertical-align: top;
-  margin-right: 30rpx;
-}
-.tool-item image{
-  height: 60rpx;
-  width: 60rpx;
-  vertical-align: -3px;
-  margin-right: 10rpx;
-}
-.comment image{
-  transform: scale(.85);
-}
-
 .button-sp-area{
     margin: 0 auto;
     padding-top: 15px;
@@ -49,38 +28,14 @@
 }
 
 /* pages/userInfo/myShop/myShop.wxss */
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20rpx;
-  margin-bottom: 20rpx;
-}
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
-.userinfo-nickname {
-  color: #aaa;
-}
-
-.kind-list__img {
-  width: 20px;
-  height: 20px;
-  margin-right: 8px;
-}
 
 .weui-cell {
-  margin-top: 8rpx;
-  margin-bottom: 8rpx;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
 }
 .weui-cell_access {
-  margin-top: 8rpx;
-  margin-bottom: 8rpx;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
 }
 
 page, .page, .page__bd {
@@ -96,27 +51,6 @@ page, .page, .page__bd {
 }
 
 
-.idcard-item {
-  display: flex;
-  width: 100%;
-  padding: 10px;
-  border-bottom: 1px solid #eee;
-}
-
-.idcard-image > image {
-  width: 150px;
-  height: 100px;
-  border: 1px solid #eee;
-}
-
-.idcard-image {
-  padding-left: 10px;
-}
-
-.idcard-detail {
-  font-size: 14px;
-  margin-left: 10px;
-}
 
 /*这是收藏图标*/
 
@@ -139,4 +73,27 @@ page, .page, .page__bd {
 }
 .comment image{
   transform: scale(.85);
+}
+
+/*这是列表*/
+.idcard-item {
+  display: flex;
+  width: 100%;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.idcard-image > image {
+  width: 150px;
+  height: 100px;
+  border: 1px solid #eee;
+}
+
+.idcard-image {
+  padding-left: 10px;
+}
+
+.idcard-detail {
+  font-size: 14px;
+  margin-left: 10px;
 }

@@ -6,12 +6,7 @@ App({
       traceUser: true
     });
 
-    // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      }
-    })
+
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -31,12 +26,36 @@ App({
           })
         }
       }
+    });
+    // 登录
+    wx.login({
+      success: res => {
+        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+      }
+    });
+
+    //获取用户openId
+    wx.cloud.callFunction({
+      name: 'get_userinfo',
+      complete: res => {
+        console.log('云函数获取到的openid:', res.result.openId)
+        var openid = res.result.openId;
+        this.globalData.openId.openid = openid;
+   
+        // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+        // 所以此处加入 callback 以防止这种情况
+        if (this.openIdReadyCallback) {
+          this.openIdReadyCallback(res)
+        }
+      }
     })
+
   },
   globalData: {
     blog: {},
     store: {},
     product: {},
+    openId: {},
     userInfo: null
   }
 

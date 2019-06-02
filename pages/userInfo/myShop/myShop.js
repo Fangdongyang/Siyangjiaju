@@ -22,6 +22,8 @@ Page({
   onLoad: function() {
     //获取用户openID
     this.getOpenid();
+    this.getData1();
+    this.getData2();
     //页面设置
     var that = this;
     wx.getSystemInfo({
@@ -44,27 +46,22 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    this.getData1();
-    this.getData2();
+
   },
 
   /**
    * 获取用户openID
    */
   getOpenid() {
-    let that = this;
-
-    wx.cloud.callFunction({
-      name: 'get_userinfo',
-      complete: res => {
-        console.log('云函数获取到的openid:', res.result.openId)
-        var openid = res.result.openId;
-        that.setData({
-          openid: openid
-        })
-      }
+    let this_ = this;
+    let openid = app.globalData.openId.openid;
+    this_.setData({
+      openid : openid
     })
+    console.log('openId:',this.data.openid)
   },
+
+
 
   /**
    * 获取门店列表数据
@@ -73,7 +70,7 @@ Page({
     const db = wx.cloud.database({});
     db.collection('StoresForAll').where({
       //获取当前用户创建的门店信息
-      _openid: this.openid
+      _openid: this.data.openid
     }).get().then(res => {
       console.log(res);
       let data1 = res.data;
@@ -95,10 +92,11 @@ Page({
     const db = wx.cloud.database({});
     db.collection('ProductsForAll').where({
       //获取当前用户创建的商品信息
-      _openid: this.openid
+      _openid: this.data.openid
     }).get().then(res => {
       console.log(res);
       let data2 = res.data;
+
       this.setData({
         list2: data2
       });

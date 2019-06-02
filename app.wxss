@@ -13,18 +13,18 @@ page{
     font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
 }
 .page__hd {
-    padding: 10px;
+    padding: 8px;
 }
 .page__bd {
-    padding-bottom: 10px;
+    padding-bottom: 8px;
 }
 .page__bd_spacing {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 8px;
+    padding-right: 8px;
 }
 
 .page__ft{
-    padding-bottom: 10px;
+    padding-bottom: 8px;
     text-align: center;
 }
 
@@ -118,7 +118,7 @@ icon {
   height: 1px;
   border-top: 1rpx solid #d9d9d9;
   color: #d9d9d9;
-  left: 15px;
+  left: 8px;
 }
 
 .weui-cell:first-child:before {
@@ -151,7 +151,7 @@ icon {
 }
 
 .weui-cell__ft_in-access {
-  padding-right: 13px;
+  padding-right: 8px;
   position: relative;
 }
 

@@ -14,49 +14,48 @@
         <!--这是选项一-->
         <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
           <view class="container">
-            <view class="storeName">{{storeName}}</view>
+            
             <view class="previewimg">
               <image src="{{cover}}" data-src="{{cover}}" bindtap="previewImage"></image>
             </view>
-            <view class="storeAddress">门店地址：{{storeAddress}}</view>
+            <view class="storeName">{{storeName}}</view>
+            <view class="storeAddress">地址：{{storeAddress}}</view>
             <view class="storeName">联系人：{{storeContactName}}</view>
-            <view class="storeName">联系电话:{{storeContactPhone}}</view>
+            <view class="storeName">联系电话：{{storeContactPhone}}</view>
             <view class="content">
               {{content}}
             </view>
           </view>
           <!--这是评分、收藏功能-->
-          <van-rate value="{{rateValue}}" bind:change="onChange" />
-          <text>门店评分：{{rateNum}}</text>
           <!-- this is tools-->
           <view class="tool">
+            <van-rate value="{{rateValue}}" bind:change="onChange" />
+            <text>门店评分：{{rateNum}}</text>
+            <text>------</text>
             <view class="tool-item" catchtap='onFavTap' data-post-id="{{storeid}}">
               <image wx:if="{{favStatus}}" src="/images/icons/favs2.png"></image>
               <image wx:else src='/images/icons/favs.png'></image>
               <text>收藏{{favNum}}</text>
             </view>
           </view>
+
         </view>
+
         <!--这是选项二-->
         <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
           <!--获取商品信息列表-->
-          <block wx:if="{{!storeData.length}}">
-            <view>商家暂未发布商品！</view>
-          </block>
-          <block wx:else>
-            <view class="idcard-item" wx:for="{{list2}}" wx:key="*this" ontap="getProductDetail" data-productid="{{item._id}}">
-              <view class="idcard-image">
-                <image src="{{item.cover}}"></image>
-              </view>
-              <view class="idcard-detail">
-                <view class="productName">商品名称：{{item.productName}}</view>
-                <view class="productPrice">商品价格：{{item.productPrice}}/{{item.productUnit}}</view>
-                <view class="productSize">商品规格：{{item.productSize}}</view>
-                <view class="productColor">商品颜色：{{item.productColor}}</view>
-                <view class="content">商品说明：{{item.content}}</view>
-              </view>
+          <view class="idcard-item" wx:for="{{list2}}" wx:key="*this" ontap="getProductDetail" data-productid="{{item._id}}">
+            <view class="idcard-image">
+              <image src="{{item.cover}}"></image>
             </view>
-          </block>
+            <view class="idcard-detail">
+              <view class="productName">商品名称：{{item.productName}}</view>
+              <view class="productPrice">商品价格：{{item.productPrice}}/{{item.productUnit}}</view>
+              <view class="productSize">商品规格：{{item.productSize}}</view>
+              <view class="productColor">商品颜色：{{item.productColor}}</view>
+              <view class="content">商品说明：见详情</view>
+            </view>
+          </view>
         </view>
       </view>
     </view>
